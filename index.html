@@ -10,44 +10,32 @@
 
   <meta name="description" content="Buat undangan online digital website cepat & elegan" />
 
-  <!-- OG -->
-  <meta property="og:title" content="Malirainvitation.co" />
-  <meta property="og:description" content="Undangan digital modern & praktis" />
-  <meta property="og:image" content="https://alamatwebvercel.app/assets/thumbnail.jpg" />
-  <meta property="og:url" content="https://alamatwebvercel.app" />
-  <meta property="og:type" content="website" />
-
-  <!-- ICON -->
   <link rel="icon" href="favicon.ico" />
 
-  <!-- ICONS -->
   <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- THEME -->
   <link rel="stylesheet" href="/assets/theme-16.css" />
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
-<header class="sticky top-0 z-50">
-  <nav class="navbar backdrop-blur border-b border-secondary">
-    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
-      <div class="flex items-center gap-2">
-        <img src="/assets/Malirainvitation.co.png" width="40">
-        <span class="font-bold">Malirainvitation.co</span>
-      </div>
-
-      <a href="https://wa.me/6281279281358"
-        class="bg-primary text-white px-4 py-2 rounded">
-        Hubungi Kami
-      </a>
+<!-- HEADER -->
+<header class="sticky top-0 z-50 bg-white">
+  <nav class="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
+    <div class="flex items-center gap-2">
+      <img src="/assets/Malirainvitation.co.png" width="40">
+      <span class="font-bold">Malirainvitation.co</span>
     </div>
+
+    <a href="https://wa.me/6281279281358"
+      class="bg-primary text-white px-4 py-2 rounded">
+      Hubungi Kami
+    </a>
   </nav>
 </header>
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 <section id="home" class="text-center py-24 bg-secondary">
   <h1 class="text-5xl font-bold mb-6">
     Undangan Digital Modern
@@ -62,7 +50,7 @@
   </a>
 </section>
 
-<!-- ================= TEMA ================= -->
+<!-- TEMA -->
 <section id="tema" class="py-16">
   <div class="max-w-6xl mx-auto px-4">
 
@@ -70,15 +58,21 @@
       placeholder="Cari tema..."
       class="w-full border p-3 rounded mb-4">
 
-    <div id="categories" class="mb-4"></div>
-
     <div id="themes"
       class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+
+    <!-- LOAD MORE -->
+    <div class="text-center mt-6">
+      <button id="loadMoreBtn"
+        class="bg-primary text-white px-6 py-2 rounded">
+        Load More
+      </button>
+    </div>
 
   </div>
 </section>
 
-<!-- ================= SOSMED ================= -->
+<!-- SOSMED -->
 <section class="sosmed-fix">
   <h2>Follow Sosmed Kami</h2>
 
@@ -88,53 +82,78 @@
   </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 <footer class="text-center py-6 text-gray-500">
   © Malirainvitation.co
 </footer>
 
-<!-- ================= SCRIPT ================= -->
+<!-- SCRIPT -->
 <script>
 const baseUrl = "https://webinvit.id";
 const phoneNumber = "6281279281358";
 
-let nextPageUrl = baseUrl + "/seller/api/v1/products/websites?limit=50";
+let nextPageUrl = baseUrl + "/seller/api/v1/products/websites?limit=12";
 let allThemes = [];
-let currentCategoryId = null;
 
-// LOAD
-async function loadAllThemes() {
-  let url = nextPageUrl;
+// LOAD FIRST
+async function loadThemes() {
+  const container = document.getElementById("themes");
 
-  while (url) {
-    const res = await fetch(url);
+  container.innerHTML = `
+    <div class="col-span-4 text-center py-10 animate-pulse">
+      Loading tema...
+    </div>
+  `;
+
+  try {
+    const res = await fetch(nextPageUrl);
     const json = await res.json();
 
-    allThemes = allThemes.concat(json.data.data);
-    url = json.data.next_page_url;
-  }
+    allThemes = json.data.data;
+    nextPageUrl = json.data.next_page_url;
 
-  renderThemes(allThemes);
+    renderThemes(allThemes, true);
+
+  } catch {
+    container.innerHTML = "Gagal load";
+  }
+}
+
+// LOAD MORE
+async function loadMore() {
+  if (!nextPageUrl) return;
+
+  const res = await fetch(nextPageUrl);
+  const json = await res.json();
+
+  nextPageUrl = json.data.next_page_url;
+
+  renderThemes(json.data.data, false);
 }
 
 // RENDER
-function renderThemes(data) {
+function renderThemes(data, clear = false) {
   const container = document.getElementById("themes");
-  container.innerHTML = "";
+
+  if (clear) container.innerHTML = "";
 
   data.forEach(theme => {
-    container.innerHTML += `
-      <div class="bg-white rounded shadow">
-        <img src="${theme.featured_image}" class="w-full aspect-square object-cover">
+    const card = document.createElement("div");
+
+    card.innerHTML = `
+      <div class="bg-white rounded shadow hover:shadow-lg transition">
+        <img loading="lazy" src="${theme.featured_image}" class="w-full aspect-square object-cover">
         <div class="p-2">
-          <h3 class="font-bold">${theme.name}</h3>
-          <div class="grid grid-cols-2 gap-2 mt-2">
+          <h3 class="font-bold text-sm">${theme.name}</h3>
+          <div class="grid grid-cols-2 gap-2 mt-2 text-xs">
             <a href="${baseUrl}/preview/${theme.slug}" target="_blank" class="bg-gray-200 text-center rounded p-1">Preview</a>
             <a href="https://wa.me/${phoneNumber}?text=Pesan ${theme.name}" target="_blank" class="bg-purple-600 text-white text-center rounded p-1">Pesan</a>
           </div>
         </div>
       </div>
     `;
+
+    container.appendChild(card);
   });
 }
 
@@ -146,13 +165,17 @@ document.getElementById("searchInput").addEventListener("input", function () {
     t.name.toLowerCase().includes(keyword)
   );
 
-  renderThemes(filtered);
+  renderThemes(filtered, true);
 });
 
-loadAllThemes();
+// BUTTON
+document.getElementById("loadMoreBtn").addEventListener("click", loadMore);
+
+// INIT
+loadThemes();
 </script>
 
-<!-- ================= STYLE ================= -->
+<!-- STYLE -->
 <style>
 .sosmed-fix {
   text-align:center;
@@ -175,6 +198,11 @@ loadAllThemes();
   border-radius:50%;
   background:#eee;
   font-size:20px;
+  transition:0.3s;
+}
+
+.sosmed-icons a:hover {
+  transform:scale(1.2);
 }
 </style>
 
