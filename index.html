@@ -1,282 +1,234 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<title>Malirainvitation.co</title>
+<title>MaliraInvitation</title>
+<script src="https://cdn.tailwindcss.com"></script>
 
 <style>
-/* ===== GLOBAL ===== */
 body {
-  background: linear-gradient(135deg, #fdf8f3, #f3e8dd);
-  font-family: sans-serif;
+  background: linear-gradient(135deg,#1c1208,#2b1a0d);
+  color:white;
 }
 
-/* TEXT */
-.text-gradient {
-  background: linear-gradient(90deg, #7b4b2a, #c8a27a);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+/* PAGE SYSTEM */
+.page {display:none;}
+.page.active {display:block;}
 
 /* GLASS */
 .glass {
-  background: rgba(255,255,255,0.6);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
 }
 
 /* BUTTON */
-.btn-premium {
-  background: linear-gradient(135deg, #7b4b2a, #c8a27a);
-  color: white;
-  transition: 0.3s;
-}
-.btn-premium:hover {
-  opacity: 0.9;
-  transform: scale(1.03);
-}
-
-/* CARD */
-.card {
-  background: rgba(255,255,255,0.7);
-  backdrop-filter: blur(10px);
-  border-radius: 14px;
-  transition: 0.3s;
-}
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+.btn {
+  background: linear-gradient(135deg,#c08b4f,#8b5e34);
+  padding:10px 18px;
+  border-radius:10px;
 }
 
 /* CATEGORY */
 #categories button {
-  padding:6px 14px;
+  padding:6px 12px;
+  margin:3px;
   border-radius:999px;
-  background:#eee;
+  background:#ffffff20;
 }
 .category-active {
-  background: linear-gradient(135deg, #7b4b2a, #c8a27a);
-  color:white;
+  background:#c08b4f;
 }
 </style>
 </head>
 
 <body>
 
-<!-- ===== HEADER ===== -->
-<header class="sticky top-0 z-50 glass">
-  <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
-    <h1 class="font-bold text-lg text-gradient">Malirainvitation</h1>
-
-    <nav class="hidden md:flex gap-6 text-sm">
-      <a href="#home">Home</a>
-      <a href="#problem">Problem</a>
-      <a href="#solusi">Solusi</a>
-      <a href="#tema">Tema</a>
-      <a href="#paket">Paket</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-
-    <a href="https://wa.me/6281279281358"
-      class="btn-premium px-4 py-2 rounded">
-      Hubungi
-    </a>
+<!-- NAV -->
+<div class="flex justify-between p-4 glass sticky top-0">
+  <b>MaliraInvitation</b>
+  <div class="flex gap-2">
+    <button onclick="showPage('home')" class="btn">Home</button>
+    <button onclick="showPage('paket')" class="btn">Paket</button>
   </div>
-</header>
+</div>
 
-<!-- ===== HERO ===== -->
-<section id="home" class="text-center py-32">
-  <h1 class="text-5xl font-bold mb-6">
-    Undangan Digital <br>
-    <span class="text-gradient">Elegant & Modern</span>
-  </h1>
-  <p class="mb-8 text-lg text-gray-600">
-    Praktis, mewah, dan cukup kirim link
-  </p>
-  <a href="#tema" class="btn-premium px-8 py-3 rounded">
-    Lihat Tema
-  </a>
+<!-- ================= HOME ================= -->
+<div id="home" class="page active">
+
+<!-- HERO -->
+<section class="text-center py-20">
+<h1 class="text-4xl font-bold mb-4">Undangan Digital Premium</h1>
+<p class="opacity-70">Modern, cepat & elegan</p>
 </section>
 
-<!-- ===== PROBLEM ===== -->
-<section id="problem" class="py-20 text-center max-w-4xl mx-auto">
-  <h2 class="text-3xl font-bold">
-    Undangan cetak mahal & ribet.
-    <span class="text-gradient">Saatnya beralih ke digital</span>
-  </h2>
+<!-- PROBLEM -->
+<section class="text-center py-12">
+<h2 class="text-2xl">Undangan cetak ribet & mahal</h2>
+<p class="opacity-70">Sekarang cukup kirim link</p>
 </section>
 
-<!-- ===== SOLUSI ===== -->
-<section id="solusi" class="py-20">
-  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 px-4">
-
-    <div class="card p-6 text-center">
-      <h3 class="font-bold mb-2">500+ Tema</h3>
-      <p>Elegan & kekinian</p>
-    </div>
-
-    <div class="card p-6 text-center">
-      <h3 class="font-bold mb-2">RSVP</h3>
-      <p>Tracking tamu otomatis</p>
-    </div>
-
-    <div class="card p-6 text-center">
-      <h3 class="font-bold mb-2">Maps</h3>
-      <p>Arah lokasi akurat</p>
-    </div>
-
-  </div>
+<!-- SOLUSI -->
+<section class="py-12 text-center">
+<h2 class="text-2xl mb-6">Fitur Unggulan</h2>
+<div class="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+<div class="glass">500+ Tema</div>
+<div class="glass">RSVP & Buku Tamu</div>
+<div class="glass">Google Maps</div>
+<div class="glass">Galeri Foto</div>
+<div class="glass">Musik Latar</div>
+<div class="glass">Ucapan & Doa</div>
+</div>
 </section>
 
-<!-- ===== TEMA ===== -->
-<section id="tema" class="py-20">
-  <div class="max-w-6xl mx-auto px-4">
+<!-- TEMA -->
+<section class="py-16">
+<div class="max-w-6xl mx-auto px-4">
 
-    <h2 class="text-4xl font-bold text-center mb-6">
-      Pilih <span class="text-gradient">Tema</span>
-    </h2>
+<input id="searchInput"
+placeholder="Cari tema..."
+class="w-full p-3 rounded text-black mb-4">
 
-    <div class="glass p-3 rounded mb-4">
-      <input id="searchInput"
-        placeholder="Cari tema..."
-        class="w-full bg-transparent outline-none">
-    </div>
+<div id="categories" class="mb-4"></div>
 
-    <div id="categories" class="flex flex-wrap gap-2 justify-center mb-6"></div>
+<div id="themes"
+class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
 
-    <div id="themes" class="grid grid-cols-2 md:grid-cols-4 gap-6"></div>
-
-  </div>
+</div>
 </section>
 
-<!-- ===== PAKET ===== -->
-<section id="paket" class="py-20">
-  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 px-4">
+</div>
 
-    <div class="card p-6 text-center">
-      <h3 class="text-xl font-bold">Basic</h3>
-      <p class="text-3xl my-3">65K</p>
-      <ul class="text-sm text-left mb-4">
-        <li>✔ RSVP</li>
-        <li>✔ Maps</li>
-        <li>✔ Musik</li>
-      </ul>
-      <a href="#" class="btn-premium px-4 py-2 rounded block">Pesan</a>
-    </div>
+<!-- ================= PAKET ================= -->
+<div id="paket" class="page">
 
-    <div class="card p-6 text-center border-2 border-yellow-400">
-      <h3 class="text-xl font-bold">Premium</h3>
-      <p class="text-3xl my-3">75K</p>
-      <ul class="text-sm text-left mb-4">
-        <li>✔ Galeri Foto</li>
-        <li>✔ RSVP</li>
-        <li>✔ Maps</li>
-      </ul>
-      <a href="#" class="btn-premium px-4 py-2 rounded block">Pesan</a>
-    </div>
+<section class="py-20 text-center">
+<h2 class="text-3xl mb-10">Paket Undangan</h2>
 
-    <div class="card p-6 text-center">
-      <h3 class="text-xl font-bold">Prioritas</h3>
-      <p class="text-3xl my-3">100K</p>
-      <ul class="text-sm text-left mb-4">
-        <li>✔ Semua fitur</li>
-        <li>✔ Love Story</li>
-      </ul>
-      <a href="#" class="btn-premium px-4 py-2 rounded block">Pesan</a>
-    </div>
+<div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
 
-  </div>
+<!-- BASIC -->
+<div class="glass">
+<h3 class="text-xl font-bold">Basic</h3>
+<p class="text-lg">Rp65K</p>
+<ul class="text-sm mt-4 space-y-1">
+<li>✔ RSVP & Buku Tamu</li>
+<li>✔ Google Maps</li>
+<li>✔ Musik Latar</li>
+<li>✔ Amplop Digital</li>
+<li>❌ Tanpa Galeri</li>
+</ul>
+</div>
+
+<!-- PREMIUM -->
+<div class="glass border-2 border-yellow-400">
+<h3 class="text-xl font-bold">Premium</h3>
+<p class="text-lg">Rp75K</p>
+<ul class="text-sm mt-4 space-y-1">
+<li>✔ RSVP & Buku Tamu</li>
+<li>✔ Google Maps</li>
+<li>✔ Musik Latar</li>
+<li>✔ Amplop Digital</li>
+<li>✔ Galeri Foto</li>
+</ul>
+</div>
+
+<!-- ULTIMATE -->
+<div class="glass">
+<h3 class="text-xl font-bold">Ultimate</h3>
+<p class="text-lg">Rp100K</p>
+<ul class="text-sm mt-4 space-y-1">
+<li>✔ Semua fitur Premium</li>
+<li>✔ Love Story</li>
+<li>✔ Turut Mengundang</li>
+<li>✔ Custom Request</li>
+</ul>
+</div>
+
+</div>
+
 </section>
 
-<!-- ===== FAQ ===== -->
-<section id="faq" class="py-20 text-center">
-  <h2 class="text-3xl font-bold mb-4">FAQ</h2>
-  <p>Proses cepat ±1 jam, kirim unlimited</p>
-</section>
+</div>
 
-<!-- ===== FOOTER ===== -->
-<footer class="text-center py-8 text-gray-500">
-  © Malirainvitation.co
-</footer>
-
-<!-- ===== SCRIPT ===== -->
+<!-- SCRIPT -->
 <script>
 const baseUrl = "https://webinvit.id";
+
 let allThemes = [];
 let currentCategory = null;
 
-// LOAD
-async function loadThemes() {
-  const res = await fetch(baseUrl + "/seller/api/v1/products/websites?limit=40");
-  const json = await res.json();
-  allThemes = json.data.data;
-  renderThemes(allThemes);
+// PAGE SWITCH
+function showPage(id){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
 }
 
-// CATEGORY
-async function loadCategories() {
-  const res = await fetch(baseUrl + "/seller/api/v1/categories");
+// LOAD THEMES (ringan)
+async function loadThemes(){
+  const res = await fetch(baseUrl + "/seller/api/v1/products/websites?limit=30");
   const json = await res.json();
+  allThemes = json.data.data;
 
-  const container = document.getElementById("categories");
+  renderThemes(allThemes);
+  buildCategories();
+}
 
-  const allBtn = document.createElement("button");
-  allBtn.textContent = "Semua";
-  allBtn.classList.add("category-active");
-  allBtn.onclick = () => { currentCategory=null; setActive(allBtn); applyFilter(); };
-  container.appendChild(allBtn);
+// RENDER
+function renderThemes(data){
+  const el = document.getElementById("themes");
+  el.innerHTML = "";
 
-  json.data.forEach(cat=>{
-    const btn=document.createElement("button");
-    btn.textContent=cat.name;
-    btn.onclick=()=>{ currentCategory=cat.id; setActive(btn); applyFilter(); };
-    container.appendChild(btn);
+  data.forEach(t=>{
+    el.innerHTML += `
+    <div class="glass">
+      <img src="${t.featured_image}" class="rounded mb-2">
+      <b>${t.name}</b>
+    </div>`;
   });
 }
 
-// FILTER
-function applyFilter(){
-  const keyword=document.getElementById("searchInput").value.toLowerCase();
+// CATEGORY
+function buildCategories(){
+  const cats = [...new Set(allThemes.map(t=>t.category_id))];
+  const el = document.getElementById("categories");
 
-  const filtered=allThemes.filter(t=>{
-    return t.name.toLowerCase().includes(keyword) &&
-    (currentCategory ? t.category_id==currentCategory : true);
+  el.innerHTML = `<button class="category-active" onclick="setCat(null,this)">Semua</button>`;
+
+  cats.forEach(c=>{
+    el.innerHTML += `<button onclick="setCat(${c},this)">Kategori ${c}</button>`;
+  });
+}
+
+function setCat(id,btn){
+  currentCategory = id;
+
+  document.querySelectorAll("#categories button")
+  .forEach(b=>b.classList.remove("category-active"));
+
+  btn.classList.add("category-active");
+
+  applyFilter();
+}
+
+// SEARCH
+document.getElementById("searchInput").addEventListener("input",applyFilter);
+
+function applyFilter(){
+  const key = document.getElementById("searchInput").value.toLowerCase();
+
+  const filtered = allThemes.filter(t=>{
+    return (!currentCategory || t.category_id==currentCategory)
+    && t.name.toLowerCase().includes(key);
   });
 
   renderThemes(filtered);
 }
 
-function setActive(el){
-  document.querySelectorAll("#categories button").forEach(b=>b.classList.remove("category-active"));
-  el.classList.add("category-active");
-}
-
-document.getElementById("searchInput").addEventListener("input", applyFilter);
-
-// RENDER
-function renderThemes(data){
-  const container=document.getElementById("themes");
-  container.innerHTML="";
-
-  data.forEach(t=>{
-    container.innerHTML+=`
-    <div class="card">
-      <img src="${t.featured_image}" class="w-full aspect-square object-cover">
-      <div class="p-3">
-        <h3 class="font-bold text-sm">${t.name}</h3>
-      </div>
-    </div>`;
-  });
-}
-
-// INIT
 loadThemes();
-loadCategories();
 </script>
 
 </body>
