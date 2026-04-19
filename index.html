@@ -1,162 +1,182 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-<title>Undangan Digital Premium</title>
+  <title>Malirainvitation.co - Undangan Website Murah</title>
 
-<style>
-body { font-family: sans-serif; }
+  <meta name="description" content="Buat undangan online digital website cepat & elegan" />
 
-/* OPENING */
-#opening {
-  transition: 1s;
-}
+  <!-- OG -->
+  <meta property="og:title" content="Malirainvitation.co" />
+  <meta property="og:description" content="Undangan digital modern & praktis" />
+  <meta property="og:image" content="https://alamatwebvercel.app/assets/thumbnail.jpg" />
+  <meta property="og:url" content="https://alamatwebvercel.app" />
+  <meta property="og:type" content="website" />
 
-/* ANIMATION */
-.section-animate {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: 0.8s;
-}
-.section-animate.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+  <!-- ICON -->
+  <link rel="icon" href="favicon.ico" />
 
-/* SNAP */
-html {
-  scroll-snap-type: y mandatory;
-}
-section {
-  scroll-snap-align: start;
-}
+  <!-- ICONS -->
+  <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-/* BUTTON */
-.btn {
-  transition: 0.3s;
-}
-.btn:hover {
-  transform: scale(1.05);
-}
-</style>
+  <!-- THEME -->
+  <link rel="stylesheet" href="/assets/theme-16.css" />
 </head>
 
 <body>
 
-<!-- OPENING -->
-<div id="opening" class="fixed inset-0 bg-black text-white flex flex-col items-center justify-center z-50">
-  <h2 class="text-xl mb-2 opacity-80">Undangan Digital</h2>
-  <h1 class="text-4xl font-bold mb-6">Malirainvitation.co</h1>
-  <button onclick="openInvitation()" class="bg-purple-600 px-6 py-3 rounded text-white">
-    Buka Undangan
-  </button>
-</div>
+<!-- ================= HEADER ================= -->
+<header class="sticky top-0 z-50">
+  <nav class="navbar backdrop-blur border-b border-secondary">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
+      <div class="flex items-center gap-2">
+        <img src="/assets/Malirainvitation.co.png" width="40">
+        <span class="font-bold">Malirainvitation.co</span>
+      </div>
 
-<!-- MUSIC -->
-<audio id="music" loop>
-  <source src="https://files.catbox.moe/8h6n7v.mp3" type="audio/mpeg">
-</audio>
+      <a href="https://wa.me/6281279281358"
+        class="bg-primary text-white px-4 py-2 rounded">
+        Hubungi Kami
+      </a>
+    </div>
+  </nav>
+</header>
 
-<!-- HERO -->
-<section class="section-animate h-screen flex items-center justify-center text-center text-white"
-style="background:url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=2070') center/cover;">
+<!-- ================= HERO ================= -->
+<section id="home" class="text-center py-24 bg-secondary">
+  <h1 class="text-5xl font-bold mb-6">
+    Undangan Digital Modern
+  </h1>
+  <p class="mb-8 text-lg">
+    Praktis, elegan, dan bisa dibagikan hanya dengan link
+  </p>
 
-<div class="bg-black/60 p-10 rounded">
-  <h1 class="text-5xl font-bold mb-4">Undangan Digital Premium</h1>
-  <p class="mb-6">Elegan, modern, dan siap dibagikan</p>
-  <a href="#paket" class="btn bg-purple-600 px-6 py-3 rounded">Lihat Paket</a>
-</div>
+  <a href="#tema"
+    class="bg-primary text-white px-8 py-3 rounded">
+    Lihat Tema
+  </a>
 </section>
 
-<!-- FITUR -->
-<section class="section-animate py-20 text-center">
-<h2 class="text-3xl font-bold mb-10">Fitur Unggulan</h2>
+<!-- ================= TEMA ================= -->
+<section id="tema" class="py-16">
+  <div class="max-w-6xl mx-auto px-4">
 
-<div class="grid md:grid-cols-3 gap-6 px-6 max-w-5xl mx-auto">
-  <div class="bg-white p-6 shadow rounded">RSVP & Buku Tamu</div>
-  <div class="bg-white p-6 shadow rounded">Galeri Foto</div>
-  <div class="bg-white p-6 shadow rounded">Musik Otomatis</div>
-</div>
+    <input id="searchInput"
+      placeholder="Cari tema..."
+      class="w-full border p-3 rounded mb-4">
+
+    <div id="categories" class="mb-4"></div>
+
+    <div id="themes"
+      class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+
+  </div>
 </section>
 
-<!-- TESTIMONI -->
-<section class="section-animate py-20 bg-gray-100 text-center">
-<h2 class="text-3xl font-bold mb-10">Testimoni</h2>
+<!-- ================= SOSMED ================= -->
+<section class="sosmed-fix">
+  <h2>Follow Sosmed Kami</h2>
 
-<div class="grid md:grid-cols-3 gap-6 px-6 max-w-5xl mx-auto">
-  <div class="bg-white p-6 shadow rounded">Bagus banget!</div>
-  <div class="bg-white p-6 shadow rounded">Cepat & murah</div>
-  <div class="bg-white p-6 shadow rounded">Sangat puas</div>
-</div>
+  <div class="sosmed-icons">
+    <a href="https://instagram.com/malirainvitation.co"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/6281279281358"><i class="fab fa-whatsapp"></i></a>
+  </div>
 </section>
 
-<!-- PAKET -->
-<section id="paket" class="section-animate py-20 text-center">
-<h2 class="text-3xl font-bold mb-10">Paket Harga</h2>
+<!-- ================= FOOTER ================= -->
+<footer class="text-center py-6 text-gray-500">
+  © Malirainvitation.co
+</footer>
 
-<div class="grid md:grid-cols-3 gap-6 px-6 max-w-5xl mx-auto">
-
-<div class="bg-white p-6 shadow rounded">
-<h3 class="text-xl mb-2">Basic</h3>
-<p class="text-2xl font-bold mb-4">Rp65K</p>
-<a href="#" class="bg-purple-600 text-white px-4 py-2 rounded">Pesan</a>
-</div>
-
-<div class="bg-white p-6 shadow rounded">
-<h3 class="text-xl mb-2">Premium</h3>
-<p class="text-2xl font-bold mb-4">Rp75K</p>
-<a href="#" class="bg-purple-600 text-white px-4 py-2 rounded">Pesan</a>
-</div>
-
-<div class="bg-white p-6 shadow rounded">
-<h3 class="text-xl mb-2">Prioritas</h3>
-<p class="text-2xl font-bold mb-4">Rp100K</p>
-<a href="#" class="bg-purple-600 text-white px-4 py-2 rounded">Pesan</a>
-</div>
-
-</div>
-</section>
-
-<!-- CTA -->
-<div class="fixed bottom-0 w-full bg-white p-3 flex justify-between items-center shadow">
-<span class="font-bold">Mulai Rp65.000</span>
-<a href="https://wa.me/6281279281358" class="bg-purple-600 text-white px-4 py-2 rounded">
-Pesan Sekarang
-</a>
-</div>
-
+<!-- ================= SCRIPT ================= -->
 <script>
-document.body.style.overflow = "hidden";
+const baseUrl = "https://webinvit.id";
+const phoneNumber = "6281279281358";
 
-function openInvitation() {
-  const opening = document.getElementById("opening");
+let nextPageUrl = baseUrl + "/seller/api/v1/products/websites?limit=50";
+let allThemes = [];
+let currentCategoryId = null;
 
-  opening.style.opacity = "0";
-  document.getElementById("music").play();
+// LOAD
+async function loadAllThemes() {
+  let url = nextPageUrl;
 
-  setTimeout(() => {
-    opening.style.display = "none";
-    document.body.style.overflow = "auto";
-  }, 1000);
+  while (url) {
+    const res = await fetch(url);
+    const json = await res.json();
+
+    allThemes = allThemes.concat(json.data.data);
+    url = json.data.next_page_url;
+  }
+
+  renderThemes(allThemes);
 }
 
-// ANIMASI SECTION
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
-  });
-}, { threshold: 0.2 });
+// RENDER
+function renderThemes(data) {
+  const container = document.getElementById("themes");
+  container.innerHTML = "";
 
-document.querySelectorAll(".section-animate").forEach((el) => {
-  observer.observe(el);
+  data.forEach(theme => {
+    container.innerHTML += `
+      <div class="bg-white rounded shadow">
+        <img src="${theme.featured_image}" class="w-full aspect-square object-cover">
+        <div class="p-2">
+          <h3 class="font-bold">${theme.name}</h3>
+          <div class="grid grid-cols-2 gap-2 mt-2">
+            <a href="${baseUrl}/preview/${theme.slug}" target="_blank" class="bg-gray-200 text-center rounded p-1">Preview</a>
+            <a href="https://wa.me/${phoneNumber}?text=Pesan ${theme.name}" target="_blank" class="bg-purple-600 text-white text-center rounded p-1">Pesan</a>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+}
+
+// SEARCH
+document.getElementById("searchInput").addEventListener("input", function () {
+  const keyword = this.value.toLowerCase();
+
+  const filtered = allThemes.filter(t =>
+    t.name.toLowerCase().includes(keyword)
+  );
+
+  renderThemes(filtered);
 });
+
+loadAllThemes();
 </script>
+
+<!-- ================= STYLE ================= -->
+<style>
+.sosmed-fix {
+  text-align:center;
+  padding:60px;
+  background:#f5f5f5;
+}
+
+.sosmed-icons {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+
+.sosmed-icons a {
+  width:50px;
+  height:50px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#eee;
+  font-size:20px;
+}
+</style>
 
 </body>
 </html>
