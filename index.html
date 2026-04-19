@@ -1,26 +1,54 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="id" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-  <title>Malirainvitation.co - Undangan Website Murah</title>
+<title>Malirainvitation.co</title>
 
-  <meta name="description" content="Undangan digital modern & praktis" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <link rel="icon" href="favicon.ico" />
-  <link rel="stylesheet" href="/assets/theme-16.css" />
+<style>
+/* CATEGORY */
+#categories {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:20px;
+}
+#categories button {
+  background:#eee;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:12px;
+}
+.category-active {
+  background:#6d28d9;
+  color:white;
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  display:none;
+}
+.mobile-menu.active {
+  display:block;
+}
+</style>
+
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
-<header class="sticky top-0 z-50 bg-white border-b">
-  <div class="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
-    <span class="font-bold">Malirainvitation.co</span>
+<!-- NAV -->
+<header class="sticky top-0 bg-white shadow z-50">
+  <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
 
+    <h1 class="font-bold">Malirainvitation</h1>
+
+    <!-- MENU DESKTOP -->
     <div class="hidden md:flex gap-4 text-sm">
       <a href="#home">Home</a>
       <a href="#problem">Problem</a>
@@ -30,49 +58,59 @@
       <a href="#faq">FAQ</a>
     </div>
 
+    <!-- BUTTON -->
     <a href="https://wa.me/6281279281358"
-      class="bg-primary text-white px-4 py-2 rounded text-sm">
+      class="hidden md:block bg-purple-600 text-white px-4 py-2 rounded">
+      Hubungi
+    </a>
+
+    <!-- HAMBURGER -->
+    <button onclick="toggleMenu()" class="md:hidden text-2xl">
+      ☰
+    </button>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu" class="mobile-menu bg-white border-t p-4 space-y-2 md:hidden">
+    <a href="#home" onclick="toggleMenu()">Home</a><br>
+    <a href="#problem" onclick="toggleMenu()">Problem</a><br>
+    <a href="#solusi" onclick="toggleMenu()">Solusi</a><br>
+    <a href="#tema" onclick="toggleMenu()">Tema</a><br>
+    <a href="#paket" onclick="toggleMenu()">Paket</a><br>
+    <a href="#faq" onclick="toggleMenu()">FAQ</a><br>
+
+    <a href="https://wa.me/6281279281358"
+      class="block bg-purple-600 text-white px-4 py-2 rounded text-center">
       Hubungi
     </a>
   </div>
 </header>
 
-<!-- ================= HOME ================= -->
-<section id="home" class="text-center py-24 bg-secondary">
-  <h1 class="text-5xl font-bold mb-6">
-    Undangan Digital Modern
-  </h1>
-  <p class="mb-8 text-lg">
-    Praktis, elegan, dan bisa dibagikan hanya dengan link
-  </p>
-
-  <a href="#tema"
-    class="bg-primary text-white px-8 py-3 rounded">
-    Lihat Tema
-  </a>
+<!-- HERO -->
+<section id="home" class="text-center py-24 bg-gray-100">
+  <h1 class="text-4xl font-bold mb-4">Undangan Digital Modern</h1>
+  <p class="mb-6">Praktis, elegan & kekinian</p>
+  <a href="#tema" class="bg-purple-600 text-white px-6 py-3 rounded">Lihat Tema</a>
 </section>
 
-<!-- ================= PROBLEM ================= -->
-<section id="problem" class="py-16 text-center">
-  <h2 class="text-3xl font-bold max-w-3xl mx-auto">
-    Undangan cetak mahal, ribet, dan susah dibagikan ke tamu jauh.
+<!-- PROBLEM -->
+<section id="problem" class="py-16 text-center max-w-4xl mx-auto">
+  <h2 class="text-2xl font-bold">
+    Undangan cetak mahal & ribet.
+    <span class="text-purple-600">Gunakan undangan digital</span>
   </h2>
 </section>
 
-<!-- ================= SOLUSI ================= -->
-<section id="solusi" class="py-16 bg-secondary text-center">
-  <h2 class="text-3xl font-bold mb-10">
-    Solusi Undangan Digital
-  </h2>
-
-  <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-    <div class="p-6 bg-white rounded shadow">500+ Tema</div>
-    <div class="p-6 bg-white rounded shadow">RSVP & Buku Tamu</div>
-    <div class="p-6 bg-white rounded shadow">Galeri Foto</div>
+<!-- SOLUSI -->
+<section id="solusi" class="py-16 bg-gray-100">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 px-4">
+    <div class="bg-white p-6 rounded shadow">500+ Tema</div>
+    <div class="bg-white p-6 rounded shadow">RSVP</div>
+    <div class="bg-white p-6 rounded shadow">Google Maps</div>
   </div>
 </section>
 
-<!-- ================= TEMA ================= -->
+<!-- TEMA -->
 <section id="tema" class="py-16">
   <div class="max-w-6xl mx-auto px-4">
 
@@ -80,137 +118,155 @@
       placeholder="Cari tema..."
       class="w-full border p-3 rounded mb-4">
 
+    <!-- KATEGORI -->
+    <div id="categories"></div>
+
     <div id="themes"
       class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
 
-    <div class="text-center mt-6">
-      <button id="loadMoreBtn"
-        class="bg-primary text-white px-6 py-2 rounded">
-        Load More
-      </button>
+  </div>
+</section>
+
+<!-- PAKET -->
+<section id="paket" class="py-16 bg-gray-100">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 px-4">
+
+    <div class="bg-white p-6 rounded shadow text-center">
+      <h3 class="font-bold">Basic</h3>
+      <p class="text-2xl">65K</p>
+      <ul class="text-sm text-left">
+        <li>✔ RSVP</li>
+        <li>✔ Maps</li>
+        <li>✔ Musik</li>
+      </ul>
+    </div>
+
+    <div class="bg-white p-6 rounded shadow text-center">
+      <h3 class="font-bold">Premium</h3>
+      <p class="text-2xl">75K</p>
+      <ul class="text-sm text-left">
+        <li>✔ Galeri</li>
+        <li>✔ RSVP</li>
+        <li>✔ Maps</li>
+      </ul>
+    </div>
+
+    <div class="bg-white p-6 rounded shadow text-center">
+      <h3 class="font-bold">Prioritas</h3>
+      <p class="text-2xl">100K</p>
+      <ul class="text-sm text-left">
+        <li>✔ Semua fitur</li>
+        <li>✔ Love Story</li>
+      </ul>
     </div>
 
   </div>
 </section>
 
-<!-- ================= PAKET ================= -->
-<section id="paket" class="py-16 bg-secondary">
-  <div class="max-w-6xl mx-auto px-4 text-center">
-    <h2 class="text-3xl font-bold mb-10">Paket Harga</h2>
-
-    <div class="grid md:grid-cols-3 gap-6">
-
-      <div class="bg-white p-6 rounded shadow">
-        <h3 class="font-bold text-xl">Basic</h3>
-        <p class="text-3xl my-3">65K</p>
-        <a href="https://wa.me/6281279281358?text=Basic"
-          class="bg-primary text-white px-4 py-2 rounded block">
-          Pesan
-        </a>
-      </div>
-
-      <div class="bg-white p-6 rounded shadow">
-        <h3 class="font-bold text-xl">Premium</h3>
-        <p class="text-3xl my-3">75K</p>
-        <a href="https://wa.me/6281279281358?text=Premium"
-          class="bg-primary text-white px-4 py-2 rounded block">
-          Pesan
-        </a>
-      </div>
-
-      <div class="bg-white p-6 rounded shadow">
-        <h3 class="font-bold text-xl">Prioritas</h3>
-        <p class="text-3xl my-3">100K</p>
-        <a href="https://wa.me/6281279281358?text=Prioritas"
-          class="bg-primary text-white px-4 py-2 rounded block">
-          Pesan
-        </a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================= FAQ ================= -->
+<!-- FAQ -->
 <section id="faq" class="py-16 text-center">
-  <h2 class="text-3xl font-bold mb-6">FAQ</h2>
-
-  <div class="max-w-xl mx-auto space-y-3">
-    <details class="border p-3 rounded">
-      <summary>Berapa lama proses?</summary>
-      <p>Kurang dari 1 jam.</p>
-    </details>
-
-    <details class="border p-3 rounded">
-      <summary>Apakah unlimited?</summary>
-      <p>Ya, bebas kirim.</p>
-    </details>
-  </div>
+  <h2 class="text-2xl font-bold">FAQ</h2>
+  <p>Proses cepat & mudah</p>
 </section>
 
-<!-- ================= SOSMED ================= -->
-<section class="text-center py-12 bg-gray-100">
-  <h2 class="mb-4">Follow Kami</h2>
-  <a href="https://instagram.com/malirainvitation.co">Instagram</a>
-</section>
-
-<!-- ================= FOOTER ================= -->
-<footer class="text-center py-6 text-gray-500">
-  © Malirainvitation.co
-</footer>
-
-<!-- ================= SCRIPT CEPAT ================= -->
+<!-- SCRIPT -->
 <script>
 const baseUrl = "https://webinvit.id";
-const phoneNumber = "6281279281358";
 
-let nextPageUrl = baseUrl + "/seller/api/v1/products/websites?limit=12";
+let allThemes = [];
+let currentCategory = null;
 
-// LOAD AWAL
+// MOBILE MENU
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("active");
+}
+
+// LOAD THEMES
 async function loadThemes() {
-  const res = await fetch(nextPageUrl);
+  const res = await fetch(baseUrl + "/seller/api/v1/products/websites?limit=40");
   const json = await res.json();
 
-  nextPageUrl = json.data.next_page_url;
-
-  renderThemes(json.data.data);
+  allThemes = json.data.data;
+  renderThemes(allThemes);
 }
 
-// LOAD MORE
-async function loadMore() {
-  if (!nextPageUrl) return;
-
-  const res = await fetch(nextPageUrl);
+// LOAD CATEGORY
+async function loadCategories() {
+  const res = await fetch(baseUrl + "/seller/api/v1/categories");
   const json = await res.json();
 
-  nextPageUrl = json.data.next_page_url;
+  const container = document.getElementById("categories");
 
-  renderThemes(json.data.data);
+  // ALL BUTTON
+  const allBtn = document.createElement("button");
+  allBtn.textContent = "Semua";
+  allBtn.classList.add("category-active");
+
+  allBtn.onclick = () => {
+    currentCategory = null;
+    setActive(allBtn);
+    applyFilter();
+  };
+
+  container.appendChild(allBtn);
+
+  json.data.forEach(cat => {
+    const btn = document.createElement("button");
+    btn.textContent = cat.name;
+
+    btn.onclick = () => {
+      currentCategory = cat.id;
+      setActive(btn);
+      applyFilter();
+    };
+
+    container.appendChild(btn);
+  });
 }
+
+// FILTER
+function applyFilter() {
+  const keyword = document.getElementById("searchInput").value.toLowerCase();
+
+  const filtered = allThemes.filter(t => {
+    const matchName = t.name.toLowerCase().includes(keyword);
+    const matchCategory = currentCategory ? t.category_id == currentCategory : true;
+
+    return matchName && matchCategory;
+  });
+
+  renderThemes(filtered);
+}
+
+// ACTIVE CATEGORY
+function setActive(el) {
+  document.querySelectorAll("#categories button").forEach(b => b.classList.remove("category-active"));
+  el.classList.add("category-active");
+}
+
+// SEARCH
+document.getElementById("searchInput").addEventListener("input", applyFilter);
 
 // RENDER
 function renderThemes(data) {
   const container = document.getElementById("themes");
+  container.innerHTML = "";
 
   data.forEach(t => {
     container.innerHTML += `
       <div class="bg-white rounded shadow">
-        <img loading="lazy" src="${t.featured_image}" class="w-full aspect-square object-cover">
-        <div class="p-2">
-          <h3 class="font-bold text-sm">${t.name}</h3>
-          <div class="grid grid-cols-2 gap-2 mt-2 text-xs">
-            <a href="${baseUrl}/preview/${t.slug}" target="_blank" class="bg-gray-200 p-1 text-center rounded">Preview</a>
-            <a href="https://wa.me/${phoneNumber}?text=Pesan ${t.name}" target="_blank" class="bg-purple-600 text-white p-1 text-center rounded">Pesan</a>
-          </div>
+        <img src="${t.featured_image}" class="w-full aspect-square object-cover">
+        <div class="p-2 text-sm">
+          <h3 class="font-bold">${t.name}</h3>
         </div>
       </div>
     `;
   });
 }
 
-document.getElementById("loadMoreBtn").onclick = loadMore;
-
+// INIT
 loadThemes();
+loadCategories();
 </script>
 
 </body>
