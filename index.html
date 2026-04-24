@@ -29,49 +29,7 @@
       rel="stylesheet"
       href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css"
     />
-    <link rel="stylesheet" href="/assets/theme-3.css" />
-<style>
-:root {
-  --color-secondary: #f3f4f6;
-  --color-primary-foreground: #ffffff;
-  --color-secondary-foreground: #111827;
-}
-
-/* mapping ke tailwind */
-.bg-primary {
-  background: var(--color-primary) !important;
-}
-
-.bg-secondary {
-  background: var(--color-secondary) !important;
-}
-
-.text-primary {
-  color: var(--color-primary) !important;
-}
-
-.text-primary-foreground {
-  color: var(--color-primary-foreground) !important;
-}
-
-.text-secondary-foreground {
-  color: var(--color-secondary-foreground) !important;
-}
-</style>
-    <style>
-/* WARNA DARI THEME.CSS */
-.bg-primary { background: var(--primary) !important; }
-.text-primary { color: var(--primary) !important; }
-.bg-secondary { background: var(--secondary) !important; }
-.bg-card { background: var(--card) !important; }
-
-/* GRADIENT */
-.text-gradient {
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-</style>
+    <link rel="stylesheet" href="/assets/theme-1.css" />
   </head>
   <body>
     <header class="sticky top-0 z-100">
@@ -658,15 +616,16 @@
       </div>
     </section>
 
-   <!-- Footer -->
-<footer class="py-8 text-center text-zinc-500">
-  <p>&copy; ayoo.ngundang - Undangan Website Termurah</p>
-  <p class="text-xs mt-2">
-    Kramat Jati, Jakarta Timur, DKI Jakarta
-  </p>
-</footer>
+    <!-- Footer -->
+    <footer class="py-8 text-center text-zinc-500">
+      <p>&copy; ayoo.ngundang - Undangan Website Termurah</p>
+      <p class="text-xs mt-2">
+        Kramat Jati, Jakarta Timur, DKI Jakarta
+      </p>
+    </div>
 
-<!-- SOSMED -->
+  </div>
+</section><!-- SOSMED SECTION -->
 <section class="sosmed-fix">
   <h2>Follow Sosmed Kami</h2>
 
@@ -683,50 +642,135 @@
   </div>
 </section>
 
-<!-- SCRIPT -->
-<script>
-  // JS kamu (biarkan seperti tadi)
-</script>
+<!-- WAJIB TARUH DI HEAD -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<!-- MOBILE NAV -->
-<nav class="mobile-bottom-nav">
-  <a href="#home">🏠<br>Home</a>
-  <a href="#problem">⚠️<br>Problem</a>
-  <a href="#solusi">💡<br>Solusi</a>
-  <a href="#tema">🎨<br>Tema</a>
-  <a href="#paket">💰<br>Paket</a>
-  <a href="#faq">❓<br>FAQs</a>
-</nav>
+<style>
+
+/* ===== CATEGORY STYLE (TARUH DI SINI) ===== */
+#categories {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  max-width: 500px;
+  margin: 0 auto 20px;
+}
+
+#categories button {
+  background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+  color: #5b21b6;
+  border: 1px solid #c4b5fd;
+  border-radius: 999px;
+  padding: 10px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* hover */
+#categories button:hover {
+  background: linear-gradient(135deg, #c4b5fd, #a78bfa);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* klik */
+#categories button:active {
+  transform: scale(0.95);
+}
+
+/* aktif */
+.category-active {
+  background: linear-gradient(135deg, #7c3aed, #5b21b6) !important;
+  color: #fff !important;
+  box-shadow: 0 6px 15px rgba(109,40,217,0.5);
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  #categories {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===== BARU MASUK STYLE LAMA ===== */
+.sosmed-fix {
+  width: 100%;
+  text-align: center;
+  padding: 80px 20px;
+  background: #f8f8f8;
+  border-top: 2px solid #eee;
+  position: relative;
+  z-index: 9999;
+}
+
+.sosmed-fix h2 {
+  margin-bottom: 25px;
+  font-size: 22px;
+}
+
+.sosmed-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.sosmed-icons a {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 24px;
+  border-radius: 50%;
+
+  background: #f1f1f1;
+  color: #555;
+
+  box-shadow: 
+    6px 6px 12px rgba(0,0,0,0.1),
+    -6px -6px 12px rgba(255,255,255,0.8);
+
+  transition: 0.3s;
+}
+
+/* WARNA ICON (bukan background) */
+.sosmed-icons a:nth-child(1) i { color: #E1306C; } /* IG */
+.sosmed-icons a:nth-child(2) i { color: #25D366; } /* WA */
+.sosmed-icons a:nth-child(3) i { color: #000; } /* TikTok */
+.sosmed-icons a:nth-child(4) i { color: #1877F2; } /* FB */
+
+/* HOVER */
+.sosmed-icons a:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    3px 3px 6px rgba(0,0,0,0.15),
+    -3px -3px 6px rgba(255,255,255,0.8);
+}
+
+.sosmed-icons a:hover {
+  transform: scale(1.2);
+}
+</style>
+    </div>
+
+  </div>
 
 </body>
 </html>
-    <!-- Footer -->
-<footer class="py-8 text-center text-zinc-500">
-  <p>&copy; ayoo.ngundang - Undangan Website Termurah</p>
-  <p class="text-xs mt-2">
-    Kramat Jati, Jakarta Timur, DKI Jakarta
-  </p>
-</footer>
 
-<!-- SOSMED -->
-<section class="sosmed-fix">
-  <h2>Follow Sosmed Kami</h2>
-
-  <div class="sosmed-icons">
-    <a href="https://www.instagram.com/ayoo.ngundang" target="_blank">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://api.whatsapp.com/send?phone=62895322508505" target="_blank">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-    <a href="https://www.tiktok.com/ayoo.ngundang" target="_blank">
-      <i class="fab fa-tiktok"></i>
-    </a>
   </div>
-</section>
 
-<!-- SCRIPT UTAMA (PASTIKAN CUMA 1) -->
-<script>
+</body>
+</html>
+
+    </footer>
+
+    <script>
 const baseUrl = "https://webinvit.id";
 const phoneNumber = "62895322508505";
 
@@ -737,7 +781,7 @@ let allThemes = [];
 let filteredThemes = [];
 let currentCategoryId = null;
 
-// LOAD THEMES
+// ================= LOAD ALL THEMES =================
 async function loadAllThemes() {
   const container = document.getElementById("themes");
   container.innerHTML = "Loading semua tema...";
@@ -758,14 +802,23 @@ async function loadAllThemes() {
     renderThemes(allThemes);
 
   } catch (err) {
+    console.log(err);
     container.innerHTML = "Gagal load tema";
   }
 }
 
-// RENDER
+// ================= RENDER =================
 function renderThemes(data) {
   const container = document.getElementById("themes");
+  const resultCount = document.getElementById("resultCount");
+
+  if (!container) return;
+
   container.innerHTML = "";
+
+  if (resultCount) {
+    resultCount.textContent = data.length + " tema ditemukan";
+  }
 
   data.forEach(function(theme) {
     const card = document.createElement("div");
@@ -778,8 +831,8 @@ function renderThemes(data) {
         '<div class="p-3">' +
           '<h3 class="font-bold mb-2">' + theme.name + '</h3>' +
           '<div class="grid grid-cols-2 gap-2">' +
-            '<a href="' + baseUrl + '/preview/' + theme.slug + '" target="_blank" class="bg-secondary text-center p-1 rounded">Preview</a>' +
-            '<a href="https://wa.me/' + phoneNumber + '?text=Pesan+' + theme.name + '" target="_blank" class="bg-primary text-white text-center p-1 rounded">Pesan</a>' +
+            '<a href="' + baseUrl + '/preview/' + theme.slug + '" target="_blank" class="bg-gray-200 text-center p-1 rounded">Preview</a>' +
+            '<a href="https://wa.me/' + phoneNumber + '?text=Pesan+' + theme.name + '" target="_blank" class="bg-purple-500 text-white text-center p-1 rounded">Pesan</a>' +
           '</div>' +
         '</div>' +
       '</div>';
@@ -788,12 +841,12 @@ function renderThemes(data) {
   });
 }
 
-// SEARCH
+// ================= SEARCH =================
 document.getElementById("searchInput").addEventListener("input", function () {
   applyFilter();
 });
 
-// FILTER
+// ================= FILTER GABUNG =================
 function applyFilter() {
   const keyword = document.getElementById("searchInput").value.toLowerCase();
 
@@ -809,7 +862,7 @@ function applyFilter() {
   renderThemes(filteredThemes);
 }
 
-// LOAD CATEGORY
+// ================= LOAD CATEGORIES =================
 async function loadCategories() {
   const container = document.getElementById("categories");
 
@@ -818,6 +871,7 @@ async function loadCategories() {
     const result = await res.json();
     const categories = result.data;
 
+    // tombol ALL
     const allBtn = document.createElement("button");
     allBtn.textContent = "Semua";
     allBtn.className = "category-active";
@@ -830,10 +884,12 @@ async function loadCategories() {
 
     categories.forEach(function(cat) {
 
-      if (cat.name.toLowerCase().includes("syukuran")) return;
+  // ❌ HAPUS KATEGORI SYUKURAN (atau kosong)
+  if (cat.name.toLowerCase().includes("syukuran")) return;
 
       const btn = document.createElement("button");
       btn.textContent = cat.name;
+      btn.className = "";
 
       btn.onclick = function () {
         currentCategoryId = cat.id;
@@ -849,7 +905,7 @@ async function loadCategories() {
   }
 }
 
-// ACTIVE BUTTON
+// ================= ACTIVE BUTTON =================
 function setActive(el) {
   document.querySelectorAll("#categories button").forEach(btn => {
     btn.classList.remove("category-active");
@@ -857,12 +913,11 @@ function setActive(el) {
   el.classList.add("category-active");
 }
 
-// INIT
+// ================= INIT =================
 loadCategories();
 loadAllThemes();
 </script>
-
-<!-- MOBILE NAV (CUMA SEKALI) -->
+<!-- MOBILE BOTTOM NAV -->
 <nav class="mobile-bottom-nav">
   <a href="#home">🏠<br>Home</a>
   <a href="#problem">⚠️<br>Problem</a>
@@ -872,112 +927,71 @@ loadAllThemes();
   <a href="#faq">❓<br>FAQs</a>
 </nav>
 
-<!-- STYLE MOBILE NAV -->
 <style>
+/* ===== MOBILE BOTTOM NAV ===== */
 .mobile-bottom-nav {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  background: var(--primary);
+  background: #6d28d9;
   display: none;
   justify-content: space-around;
   padding: 8px 4px;
   z-index: 9999;
+  box-shadow: 0 -3px 15px rgba(0,0,0,0.25);
 }
 
-  <!-- ================== FOOTER ================== -->
-<footer class="py-8 text-center text-zinc-500">
-  <p>&copy; ayoo.ngundang - Undangan Website Termurah</p>
-  <p class="text-xs mt-2">
-    Kramat Jati, Jakarta Timur, DKI Jakarta
-  </p>
-</footer>
-
-<!-- ================== SOSMED ================== -->
-<section class="text-center py-6">
-  <h2 class="font-bold mb-2">Follow Sosmed Kami</h2>
-  <div class="flex justify-center gap-4 text-2xl">
-    <a href="https://www.instagram.com/ayoo.ngundang" target="_blank">📷</a>
-    <a href="https://api.whatsapp.com/send?phone=62895322508505" target="_blank">💬</a>
-    <a href="https://www.tiktok.com/@ayoo.ngundang" target="_blank">🎵</a>
-  </div>
-</section>
-
-<!-- ================== MOBILE NAV ================== -->
-<nav class="mobile-bottom-nav">
-  <a href="#home">🏠<br>Home</a>
-  <a href="#tema">🎨<br>Tema</a>
-  <a href="#paket">💰<br>Paket</a>
-  <a href="#faq">❓<br>FAQs</a>
-</nav>
-
-<style>
-.mobile-bottom-nav {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: var(--primary);
-  display: none;
-  justify-content: space-around;
-  padding: 8px;
-  z-index: 9999;
-}
+/* ITEM MENU */
 .mobile-bottom-nav a {
-  color: white;
+  color: #fff;
+  text-decoration: none;
   font-size: 10px;
+  font-weight: 600;
   text-align: center;
+  line-height: 1.2;
+  opacity: 0.9;
+  transition: 0.2s;
+  flex: 1;
 }
-@media (max-width:768px){
-  .mobile-bottom-nav { display:flex; }
-  body { padding-bottom:70px; }
+
+/* HOVER & TAP */
+.mobile-bottom-nav a:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.mobile-bottom-nav a:active {
+  transform: scale(0.95);
+}
+
+/* KHUSUS HP */
+@media (max-width: 768px) {
+  .mobile-bottom-nav {
+    display: flex;
+  }
+
+  /* NAVBAR TETAP MUNCUL */
+  .navbar {
+    display: flex !important;
+    height: 60px;
+  }
+
+  /* SEMBUNYIKAN MENU TENGAH */
+  .navbar ul {
+    display: none !important;
+  }
+
+  /* KECILKAN LOGO BIAR PAS */
+  .navbar img {
+    height: 32px;
+    width: 32px;
+  }
+
+  body {
+    padding-bottom: 80px;
+  }
 }
 </style>
-
-<!-- ================== SCRIPT (CUMA 1) ================== -->
-<script>
-const baseUrl = "https://webinvit.id";
-const phoneNumber = "62895322508505";
-
-let allThemes = [];
-let currentCategoryId = null;
-
-// LOAD
-async function loadAllThemes(){
-  const res = await fetch(baseUrl + "/seller/api/v1/products/websites?limit=50");
-  const result = await res.json();
-  allThemes = result.data.data;
-  renderThemes(allThemes);
-}
-
-// RENDER
-function renderThemes(data){
-  const container = document.getElementById("themes");
-  container.innerHTML = "";
-
-  data.forEach(t=>{
-    container.innerHTML += `
-      <div class="bg-card rounded shadow">
-        <img src="${t.featured_image}" class="w-full aspect-square object-cover">
-        <div class="p-2">
-          <h3 class="font-bold text-sm">${t.name}</h3>
-          <div class="grid grid-cols-2 gap-1 mt-2">
-            <a href="${baseUrl}/preview/${t.slug}" target="_blank" class="bg-secondary text-center text-xs p-1 rounded">Preview</a>
-            <a href="https://wa.me/${phoneNumber}?text=Pesan ${t.name}" target="_blank" class="bg-primary text-white text-xs p-1 rounded">Pesan</a>
-          </div>
-        </div>
-      </div>
-    `;
-  });
-}
-
-// SEARCH
-document.getElementById("searchInput").addEventListener("input", function(){
-  const key = this.value.toLowerCase();
-  const filtered = allThemes.filter(t => t.name.toLowerCase().includes(key));
-  renderThemes(filtered);
-});
-
-// INIT
-loadAllThemes();
-</script>
+  </body>
+</html>
