@@ -971,12 +971,23 @@ loadAllThemes();
     display: flex;
   }
 
-  /* sembunyikan navbar atas */
+  /* NAVBAR TETAP MUNCUL */
   .navbar {
+    display: flex !important;
+    height: 60px;
+  }
+
+  /* SEMBUNYIKAN MENU TENGAH */
+  .navbar ul {
     display: none !important;
   }
 
-  /* biar konten gak ketutup */
+  /* KECILKAN LOGO BIAR PAS */
+  .navbar img {
+    height: 32px;
+    width: 32px;
+  }
+
   body {
     padding-bottom: 80px;
   }
