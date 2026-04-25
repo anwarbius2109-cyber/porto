@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  background: #0d0d0f;
+  color: #e5e5e5;
+  line-height: 1.6;
+  font-family: "Urbanist", sans-serif;
+}
+
+/* HEADING */
+h1, h2, h3 {
+  font-family: "Instrument Serif", serif;
+  font-weight: normal;
+}
+
+h1 {
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+/* PRIMARY BUTTON */
+.bg-primary {
+  background: linear-gradient(135deg, #2a2a2f, #1a1a1f);
+  color: #ffffff;
+  box-shadow: 
+    0 4px 15px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+  transition: 0.3s;
+}
+
+/* HOVER */
+.hover\:bg-primary:hover {
+  background: linear-gradient(135deg, #333339, #222228);
+  box-shadow: 
+    0 6px 20px rgba(0,0,0,0.8),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+/* SECONDARY */
+.bg-secondary {
+  background: #141417;
+  color: #e5e5e5;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* CARD (DEPTH SHADOW) */
+.bg-card {
+  background: #16161a;
+  color: #e5e5e5;
+  border-radius: 12px;
+  box-shadow: 
+    0 8px 25px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+  transition: 0.3s;
+}
+
+.bg-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 12px 35px rgba(0,0,0,0.8),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+/* NAVBAR */
+.navbar {
+  background: rgba(15, 15, 18, 0.9);
+  backdrop-filter: blur(8px);
+  color: #e5e5e5;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* TEXT GRADIENT (SUBTLE GOLD TOUCH) */
+.text-gradient {
+  background-image: linear-gradient(45deg, #888, #ddd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* BUTTON */
+.btn {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ROUND */
+.rounded {
+  border-radius: 0rem 0.8rem;
+}
