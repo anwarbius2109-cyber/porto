@@ -814,6 +814,10 @@ let allThemes = [];
 let filteredThemes = [];
 let currentCategoryId = null;
 
+// 🔥 TAMBAH DI SINI
+let currentPage = 1;
+const perPage = 10;
+
 // ================= LOAD ALL THEMES =================
 async function loadAllThemes() {
   const container = document.getElementById("themes");
