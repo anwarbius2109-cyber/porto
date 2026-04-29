@@ -870,9 +870,50 @@ function renderThemes(data) {
     container.appendChild(card);
   });
 
+  // 🔥 NAH INI POSISI YANG BENAR
   renderPagination(totalPages, data);
 }
 
+
+// 🔥 INI HARUS DI LUAR (bukan di dalam renderThemes)
+function renderPagination(totalPages, data) {
+  let pagination = document.getElementById("pagination");
+
+  if (!pagination) {
+    pagination = document.createElement("div");
+    pagination.id = "pagination";
+    pagination.className = "flex justify-center gap-3 mt-6";
+    document.getElementById("tema").appendChild(pagination);
+  }
+
+  pagination.innerHTML = "";
+
+  const prevBtn = document.createElement("button");
+  prevBtn.innerText = "⬅ Prev";
+  prevBtn.disabled = currentPage === 1;
+  prevBtn.className = "px-4 py-2 bg-secondary rounded";
+  prevBtn.onclick = () => {
+    currentPage--;
+    renderThemes(data);
+  };
+
+  const info = document.createElement("span");
+  info.innerText = "Halaman " + currentPage + " / " + totalPages;
+  info.className = "px-3 py-2";
+
+  const nextBtn = document.createElement("button");
+  nextBtn.innerText = "Next ➡";
+  nextBtn.disabled = currentPage === totalPages;
+  nextBtn.className = "px-4 py-2 bg-primary text-white rounded";
+  nextBtn.onclick = () => {
+    currentPage++;
+    renderThemes(data);
+  };
+
+  pagination.appendChild(prevBtn);
+  pagination.appendChild(info);
+  pagination.appendChild(nextBtn);
+}
 // ================= SEARCH =================
 document.getElementById("searchInput").addEventListener("input", function () {
   applyFilter();
