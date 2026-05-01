@@ -815,9 +815,47 @@ color: var(--primary);
 
     </footer>
 
-    <script>
+<script>
+
 const baseUrl = "https://webinvit.id";
 const phoneNumber = "6281261233730";
+
+// ================= INIT =================
+loadCategories();
+loadAllThemes();
+
+
+// ================= PORTFOLIO =================
+fetch("https://raw.githubusercontent.com/USERNAME/portfolio-system/main/data/portfolio.json")
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById("portfolio");
+
+    container.innerHTML = "";
+
+    data.forEach(item => {
+      container.innerHTML += `
+        <div class="bg-card rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition">
+
+          <div class="aspect-[4/5] overflow-hidden">
+            <img src="${item.image}" class="w-full h-full object-cover">
+          </div>
+
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-2">${item.title}</h3>
+
+            <a href="${item.demo}" target="_blank"
+              class="block w-full bg-secondary text-center py-2 rounded">
+              Preview
+            </a>
+          </div>
+
+        </div>
+      `;
+    });
+  });
+
+</script>
 // ===== TEMA POPULER MANUAL =====
 const popularThemes = [
   {
